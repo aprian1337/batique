@@ -1,4 +1,4 @@
-package com.aprian1337.batique
+btw mpackage com.aprian1337.batique
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
