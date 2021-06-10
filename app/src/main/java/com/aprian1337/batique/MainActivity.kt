@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.aprian1337.batique.home.HomeFragment
 import com.aprian1337.batique.databinding.ActivityMainBinding
+import com.aprian1337.batique.favorite.FavoriteFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,10 +23,10 @@ class MainActivity : AppCompatActivity() {
                     addFragment(HomeFragment())
                     return@setOnNavigationItemSelectedListener true
                 }
-//                R.id.nav_history->{
-//                    addFragment(())
-//                    return@setOnNavigationItemSelectedListener true
-//                }
+                R.id.nav_fav->{
+                    addFragment(FavoriteFragment())
+                    return@setOnNavigationItemSelectedListener true
+                }
 //                R.id.nav_about->{
 //                    addFragment(AboutFragment())
 //                    return@setOnNavigationItemSelectedListener true

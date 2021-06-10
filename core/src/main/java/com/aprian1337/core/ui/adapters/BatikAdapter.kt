@@ -8,7 +8,7 @@ import com.aprian1337.core.databinding.ItemRowBatikBinding
 import com.aprian1337.core.domain.model.Batik
 import com.bumptech.glide.Glide
 
-class HomeAdapter : RecyclerView.Adapter<HomeAdapter.MainViewHolder>() {
+class BatikAdapter : RecyclerView.Adapter<BatikAdapter.MainViewHolder>() {
 
     private var batikData = mutableListOf<Batik>()
 
