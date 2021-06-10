@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="banyuwangi">Banyuwangi</string>
+    <string name="harga">Rp10000-Rp20000</string>
+    <string name="favorite_fab">favoriteFab</string>
+    <string name="namabatik">Batik Gajah Oleng</string>
+    <string name="daerahbatik">Banyuwangi</string>
+    <string name="title_dynamicfeature">Favorite</string>
+    <string name="android_developer">Android Developer</string>
+    <string name="myname">Dwiky Aprian Ashari</string>
+    <string name="github_logo">github_logo</string>
+    <string name="your_favorite_batik">Your Favorite Batik</string>
+    <string name="title_favorite">Favorite</string>
+</resources>

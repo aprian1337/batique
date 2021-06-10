@@ -12,6 +12,4 @@
         <dist:fusing dist:include="true" />
     </dist:module>
 
-    <application
-        android:supportsRtl="true" />
 </manifest>

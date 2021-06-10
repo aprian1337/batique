@@ -14,7 +14,7 @@ data class BatikResponse(
 	val totalHalaman: Int,
 
 	@field:SerializedName("hasil")
-	val hasil: List<com.aprian1337.core.data.source.remote.response.HasilItem>,
+	val hasil: List<HasilItem>,
 
 	@field:SerializedName("total_element")
 	val totalElement: Int

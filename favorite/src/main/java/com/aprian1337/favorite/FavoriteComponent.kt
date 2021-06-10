@@ -7,12 +7,12 @@ import dagger.Component
 
 @Component(dependencies = [FavDependencies::class])
 interface FavoriteComponent {
-    fun inject(activity: FavoriteFragment)
+    fun inject(act: FavoriteFragment)
 
     @Component.Builder
     interface Builder{
         fun context(@BindsInstance context: Context): Builder
-        fun appDependencies(dependency: FavDependencies): Builder
+        fun dependencies(dependency: FavDependencies): Builder
         fun build(): FavoriteComponent
     }
 }

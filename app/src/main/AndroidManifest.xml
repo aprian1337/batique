@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Batique"
         android:usesCleartextTraffic="true">
-        <activity android:name=".details.DetailActivity"></activity>
+        <activity android:name=".details.DetailActivity" />
         <activity android:name=".splashscreen.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

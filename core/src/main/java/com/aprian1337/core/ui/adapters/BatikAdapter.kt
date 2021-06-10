@@ -1,4 +1,4 @@
-package com.cap0097.ahuahuapp.ui.history
+package com.aprian1337.core.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

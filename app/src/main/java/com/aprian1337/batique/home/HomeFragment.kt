@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.aprian1337.batique.databinding.FragmentHomeBinding
 import com.aprian1337.batique.details.DetailActivity
 import com.aprian1337.core.domain.model.Batik
-import com.cap0097.ahuahuapp.ui.history.BatikAdapter
+import com.aprian1337.core.ui.adapters.BatikAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,7 +24,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -38,8 +38,8 @@ class HomeFragment : Fragment() {
                     showLoading(true)
                 }
                 is com.aprian1337.core.data.Status.SUCCESS -> {
-                    it.data?.let {
-                        adapter.setBatik(it)
+                    it.data?.apply {
+                        adapter.setBatik(this)
                     }
                    showLoading(false)
                 }
@@ -81,7 +81,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    fun showLoading(state: Boolean){
+    private fun showLoading(state: Boolean){
         if(state){
             binding.apply {
                 rvBatik.visibility = View.GONE

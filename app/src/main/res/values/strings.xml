@@ -3,17 +3,4 @@
     <string name="home">Home</string>
     <string name="about">About</string>
     <string name="favorites">Favorites</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="banyuwangi">Banyuwangi</string>
-    <string name="harga">Rp10000-Rp20000</string>
-    <string name="favorite_fab">favoriteFab</string>
-    <string name="namabatik">Batik Gajah Oleng</string>
-    <string name="daerahbatik">Banyuwangi</string>
-    <string name="title_dynamicfeature">Favorite</string>
-    <string name="android_developer">Android Developer</string>
-    <string name="myname">Dwiky Aprian Ashari</string>
-    <string name="github_logo">github_logo</string>
-    <string name="your_favorite_batik">Your Favorite Batik</string>
-    <string name="title_favorite">Favorite</string>
 </resources>

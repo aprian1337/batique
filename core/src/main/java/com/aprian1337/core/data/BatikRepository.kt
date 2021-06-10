@@ -1,5 +1,7 @@
 package com.aprian1337.core.data
 
+import com.aprian1337.core.data.source.remote.network.ApiResponse
+import com.aprian1337.core.data.source.remote.response.BatikResponse
 import com.aprian1337.core.domain.model.Batik
 import com.aprian1337.core.domain.repository.IBatikRepository
 import com.aprian1337.core.utils.DataMapper
@@ -16,8 +18,8 @@ class BatikRepository @Inject constructor(
     private val remoteData: com.aprian1337.core.data.source.remote.RemoteDataSource,
     private val localData: com.aprian1337.core.data.source.local.LocalDataSource
 ) : IBatikRepository {
-    override fun getAllBatik(): Flow<com.aprian1337.core.data.Status<List<Batik>>> =
-        object : com.aprian1337.core.data.NetworkBoundResource<List<Batik>, com.aprian1337.core.data.source.remote.response.BatikResponse>() {
+    override fun getAllBatik(): Flow<Status<List<Batik>>> =
+        object : NetworkBoundResource<List<Batik>, BatikResponse>() {
             override fun loadDB(): Flow<List<Batik>> {
                 return localData.getAllBatik().map {
                     DataMapper.batikEntToDom(it)
@@ -27,12 +29,12 @@ class BatikRepository @Inject constructor(
             override fun shouldFetch(data: List<Batik>?): Boolean {
                 return data == null || data.isEmpty()
             }
-            override suspend fun saveCallResult(data: com.aprian1337.core.data.source.remote.response.BatikResponse) {
+            override suspend fun saveCallResult(data: BatikResponse) {
                 val batik = DataMapper.batikResToEnt(data)
                 localData.insertAllBatik(batik)
             }
 
-            override suspend fun apiCall(): Flow<com.aprian1337.core.data.source.remote.network.ApiResponse<com.aprian1337.core.data.source.remote.response.BatikResponse>> = remoteData.getAllBatik()
+            override suspend fun apiCall(): Flow<ApiResponse<BatikResponse>> = remoteData.getAllBatik()
 
         }.asFlow()
 

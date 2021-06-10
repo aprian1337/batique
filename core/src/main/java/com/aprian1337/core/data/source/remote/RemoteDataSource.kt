@@ -16,7 +16,7 @@ class RemoteDataSource @Inject constructor(
             try {
                 val responses = apiService.getBatik()
                 val data = responses.hasil
-                if(!data.isEmpty()){
+                if(data.isNotEmpty()){
                     emit(com.aprian1337.core.data.source.remote.network.ApiResponse.Success(responses))
                 }else{
                     emit(com.aprian1337.core.data.source.remote.network.ApiResponse.Empty)

@@ -11,11 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.aprian1337.batique.details.DetailActivity
 import com.aprian1337.batique.di.FavDependencies
 import com.aprian1337.core.domain.model.Batik
+import com.aprian1337.core.ui.adapters.BatikAdapter
 import com.aprian1337.favorite.databinding.FragmentFavoriteBinding
-import com.cap0097.ahuahuapp.ui.history.BatikAdapter
-import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.EntryPointAccessors
-import dagger.internal.DaggerGenerated
 import javax.inject.Inject
 
 class FavoriteFragment : Fragment() {
@@ -30,7 +28,7 @@ class FavoriteFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -40,7 +38,7 @@ class FavoriteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         DaggerFavoriteComponent.builder()
             .context(requireContext())
-            .appDependencies(
+            .dependencies(
                 EntryPointAccessors.fromApplication(
                     requireContext(),
                     FavDependencies::class.java
@@ -86,7 +84,7 @@ class FavoriteFragment : Fragment() {
         }
     }
 
-    fun showLoading(state: Boolean) {
+    private fun showLoading(state: Boolean) {
         if (state) {
             binding.apply {
                 rvBatik.visibility = View.GONE
