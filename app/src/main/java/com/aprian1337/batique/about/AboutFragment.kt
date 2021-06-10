@@ -1,11 +1,14 @@
 package com.aprian1337.batique.about
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.aprian1337.batique.databinding.FragmentAboutBinding
+import com.aprian1337.core.utils.Constants
 
 class AboutFragment : Fragment() {
 
@@ -15,12 +18,18 @@ class AboutFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAboutBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.imgGithub.setOnClickListener{
+            Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse(Constants.URL_GITHUB)
+                startActivity(this)
+            }
+        }
     }
 }

@@ -6,4 +6,6 @@ object Constants {
 
     const val BASE_URL_API = "http://batikita.herokuapp.com/index.php/batik/"
     const val ENDPOINT_BATIK_ALL = "all"
+
+    const val URL_GITHUB = "https://github.com/aprian1337"
 }

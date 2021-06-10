@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.aprian1337.batique.about.AboutFragment"
+        tools:layout="@layout/fragment_about"
+        android:label="AboutFragment">
+
+        <action
+            android:id="@+id/action_aboutFragment_self"
+            app:destination="@id/detailActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_fav"
+        tools:layout="@layout/fragment_favorite"
+        android:name="com.aprian1337.favorite.FavoriteFragment"
+        app:moduleName="Batique.favorite"
+        android:label="FavoriteFragment" >
+        <action
+            android:id="@+id/action_favoriteFragment_self"
+            app:destination="@id/detailActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_home"
+        tools:layout="@layout/fragment_home"
+        android:name="com.aprian1337.batique.home.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_self"
+            app:destination="@id/detailActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/detailActivity"
+        android:name="com.aprian1337.batique.details.DetailActivity"
+        android:label="activity_detail"
+        tools:layout="@layout/activity_detail" />
+</navigation>

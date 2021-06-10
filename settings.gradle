@@ -1,3 +1,4 @@
 rootProject.name = "Batique"
 include ':app'
 include ':core'
+include ':favorite'

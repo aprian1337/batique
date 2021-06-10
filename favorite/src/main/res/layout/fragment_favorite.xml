@@ -6,24 +6,36 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <TextView
-        android:id="@+id/textView"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:padding="5dp"
-        android:gravity="center"
-        android:background="@color/lightbrown"
-        android:fontFamily="@font/poppins_regular"
-        android:text="Your Favorite Batik" />
+        app:cardCornerRadius="8dp"
+        android:layout_margin="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/lightbrown"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/your_favorite_batik"
+            android:textColor="@color/white" />
+
+    </androidx.cardview.widget.CardView>
 
     <ProgressBar
         android:id="@+id/pbHome"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:indeterminate="true"
-        android:indeterminateTintMode="src_atop"
         android:indeterminateTint="@color/brown"
+        android:indeterminateTintMode="src_atop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,11 +44,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_batik"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:fitsSystemWindows="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/cvText"
         tools:listitem="@layout/item_row_batik" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
