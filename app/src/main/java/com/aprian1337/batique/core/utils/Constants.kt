@@ -5,5 +5,5 @@ object Constants {
     const val DATABASE_NAME = "batik.db"
 
     const val BASE_URL_API = "http://batikita.herokuapp.com/index.php/batik/"
-    const val ENDPOINT_BATIK_ALL = "batik"
+    const val ENDPOINT_BATIK_ALL = "all"
 }
