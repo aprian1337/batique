@@ -1,9 +1,8 @@
 package com.aprian1337.batique.details
 
 import androidx.lifecycle.ViewModel
-import com.aprian1337.batique.core.data.BatikRepository
-import com.aprian1337.batique.core.domain.model.Batik
-import com.aprian1337.batique.core.domain.usecase.BatikUseCase
+import com.aprian1337.core.domain.model.Batik
+import com.aprian1337.core.domain.usecase.BatikUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

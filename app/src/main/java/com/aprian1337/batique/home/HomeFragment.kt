@@ -2,16 +2,15 @@ package com.aprian1337.batique.home
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.aprian1337.batique.core.data.Status
-import com.aprian1337.batique.core.domain.model.Batik
 import com.aprian1337.batique.databinding.FragmentHomeBinding
 import com.aprian1337.batique.details.DetailActivity
+import com.aprian1337.core.domain.model.Batik
 import com.cap0097.ahuahuapp.ui.history.HomeAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,16 +34,16 @@ class HomeFragment : Fragment() {
         setupRv()
         viewModel.batik.observe(viewLifecycleOwner, {
             when(it){
-                is Status.LOADING -> {
+                is com.aprian1337.core.data.Status.LOADING -> {
                     showLoading(true)
                 }
-                is Status.SUCCESS -> {
+                is com.aprian1337.core.data.Status.SUCCESS -> {
                     it.data?.let {
                         adapter.setBatik(it)
                     }
                    showLoading(false)
                 }
-                is Status.ERROR -> {
+                is com.aprian1337.core.data.Status.ERROR -> {
                     showLoading(false)
 
                 }

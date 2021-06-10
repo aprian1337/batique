@@ -1,14 +1,14 @@
 package com.aprian1337.batique.details
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.aprian1337.batique.R
-import com.aprian1337.batique.core.domain.model.Batik
 import com.aprian1337.batique.databinding.ActivityDetailBinding
+import com.aprian1337.core.domain.model.Batik
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 
