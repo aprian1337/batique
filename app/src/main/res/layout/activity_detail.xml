@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".details.DetailActivity">
 
+    <ProgressBar
+        android:id="@+id/pbDetail"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginBottom="32dp"
+        android:indeterminateTint="@color/brown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <include
         android:id="@+id/include_toolbar"
         layout="@layout/custom_toolbar"

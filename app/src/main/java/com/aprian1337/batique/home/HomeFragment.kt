@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
-    private var _binding : FragmentHomeBinding? = null
+    private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val adapter by lazy { BatikAdapter() }
     private val viewModel: HomeViewModel by viewModels()
@@ -33,7 +33,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupRv()
         viewModel.batik.observe(viewLifecycleOwner, {
-            when(it){
+            when (it) {
                 is com.aprian1337.core.data.Status.LOADING -> {
                     showLoading(true)
                 }
@@ -41,15 +41,14 @@ class HomeFragment : Fragment() {
                     it.data?.apply {
                         adapter.setBatik(this)
                     }
-                   showLoading(false)
+                    showLoading(false)
                 }
                 is com.aprian1337.core.data.Status.ERROR -> {
                     showLoading(false)
-
                 }
             }
         })
-        adapter.setOnItemClickCallback(object: BatikAdapter.OnItemClickCallback{
+        adapter.setOnItemClickCallback(object : BatikAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Batik) {
                 selectedUser(data)
             }
@@ -58,17 +57,7 @@ class HomeFragment : Fragment() {
 
     private fun selectedUser(data: Batik) {
         Intent(requireContext(), DetailActivity::class.java).apply {
-            val batik = Batik(
-                data.idBatik,
-                data.namaBatik,
-                data.daerahBatik,
-                data.maknaBatik,
-                data.hargaRendah,
-                data.hargaTinggi,
-                data.imgBatik,
-                data.isFavorite,
-            )
-            putExtra(DetailActivity.EXTRA_DETAIL, batik)
+            putExtra(DetailActivity.EXTRA_NAMA_BATIK, data.namaBatik)
             startActivity(this)
         }
     }
@@ -81,17 +70,18 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun showLoading(state: Boolean){
-        if(state){
+    private fun showLoading(state: Boolean) {
+        if (state) {
             binding.apply {
                 rvBatik.visibility = View.GONE
                 pbHome.visibility = View.VISIBLE
             }
-        }else{
+        } else {
             binding.apply {
                 rvBatik.visibility = View.VISIBLE
                 pbHome.visibility = View.GONE
             }
         }
     }
+    
 }

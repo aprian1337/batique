@@ -61,17 +61,7 @@ class FavoriteFragment : Fragment() {
 
     private fun selectedUser(data: Batik) {
         Intent(requireContext(), DetailActivity::class.java).apply {
-            val batik = Batik(
-                data.idBatik,
-                data.namaBatik,
-                data.daerahBatik,
-                data.maknaBatik,
-                data.hargaRendah,
-                data.hargaTinggi,
-                data.imgBatik,
-                data.isFavorite,
-            )
-            putExtra(DetailActivity.EXTRA_DETAIL, batik)
+            putExtra(DetailActivity.EXTRA_NAMA_BATIK, data.namaBatik)
             startActivity(this)
         }
     }

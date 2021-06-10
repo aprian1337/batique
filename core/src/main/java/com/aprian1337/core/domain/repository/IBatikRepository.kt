@@ -7,6 +7,8 @@ import kotlinx.coroutines.flow.Flow
 interface IBatikRepository {
     fun getAllBatik(): Flow<Status<List<Batik>>>
 
+    fun getDetailBatik(namaBatik: String): Flow<Status<Batik>>
+
     fun getFav(): Flow<List<Batik>>
 
     fun setFav(batik: Batik, isFav: Boolean)

@@ -1,5 +1,7 @@
 package com.aprian1337.core.data.source.remote
 
+import com.aprian1337.core.data.source.remote.network.ApiStatus
+import com.aprian1337.core.data.source.remote.response.BatikResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -11,18 +13,34 @@ import javax.inject.Singleton
 class RemoteDataSource @Inject constructor(
     private val apiService: com.aprian1337.core.data.source.remote.network.ApiService
 ) {
-    suspend fun getAllBatik(): Flow<com.aprian1337.core.data.source.remote.network.ApiResponse<com.aprian1337.core.data.source.remote.response.BatikResponse>> {
+    suspend fun getAllBatik(): Flow<ApiStatus<BatikResponse>> {
         return flow{
             try {
                 val responses = apiService.getBatik()
                 val data = responses.hasil
                 if(data.isNotEmpty()){
-                    emit(com.aprian1337.core.data.source.remote.network.ApiResponse.Success(responses))
+                    emit(ApiStatus.Success(responses))
                 }else{
-                    emit(com.aprian1337.core.data.source.remote.network.ApiResponse.Empty)
+                    emit(ApiStatus.Empty)
                 }
             } catch (e: Exception){
-                emit(com.aprian1337.core.data.source.remote.network.ApiResponse.Error(e.toString()))
+                emit(ApiStatus.Error(e.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getDetailBatik(namaBatik: String): Flow<ApiStatus<BatikResponse>> {
+        return flow{
+            try {
+                val responses = apiService.getDetailBatik(namaBatik)
+                val data = responses.hasil
+                if(data.isNotEmpty()){
+                    emit(ApiStatus.Success(responses))
+                }else{
+                    emit(ApiStatus.Empty)
+                }
+            } catch (e: Exception){
+                emit(ApiStatus.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
     }

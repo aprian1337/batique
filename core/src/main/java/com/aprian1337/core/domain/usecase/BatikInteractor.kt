@@ -11,6 +11,8 @@ class BatikInteractor @Inject constructor(private val repository: IBatikReposito
 
     override fun getFavBatik(): Flow<List<Batik>> = repository.getFav()
 
+    override fun getDetailBatik(namaBatik: String): Flow<Status<Batik>> = repository.getDetailBatik(namaBatik)
+
     override fun setFavBatik(batik: Batik, isFav: Boolean) = repository.setFav(batik, isFav)
 
 }

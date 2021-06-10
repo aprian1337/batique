@@ -1,6 +1,6 @@
 package com.aprian1337.core.data
 
-import com.aprian1337.core.data.source.remote.network.ApiResponse
+import com.aprian1337.core.data.source.remote.network.ApiStatus
 import kotlinx.coroutines.flow.*
 
 abstract class NetworkBoundResource<ResType, ReqType> {
@@ -10,22 +10,22 @@ abstract class NetworkBoundResource<ResType, ReqType> {
         if(shouldFetch(db)){
             emit(Status.LOADING())
             when(val responses = apiCall().first()){
-                is ApiResponse.Success -> {
+                is ApiStatus.Success -> {
                     saveCallResult(responses.data)
                     emitAll(loadDB().map {
                         Status.SUCCESS(it)
                     })
                 }
-                is ApiResponse.Empty -> {
+                is ApiStatus.Empty -> {
                     emitAll(
                         loadDB().map {
                             Status.SUCCESS(it)
                         }
                     )
                 }
-                is ApiResponse.Error -> {
+                is ApiStatus.Error -> {
                     onFetchFailed()
-                    emit(Status.ERROR(responses.errorMessage))
+                    emit(Status.ERROR<ResType>(responses.errorMessage))
                 }
             }
         }else{
@@ -41,7 +41,7 @@ abstract class NetworkBoundResource<ResType, ReqType> {
 
     protected abstract fun shouldFetch(data: ResType?): Boolean
 
-    protected abstract suspend fun apiCall(): Flow<ApiResponse<ReqType>>
+    protected abstract suspend fun apiCall(): Flow<ApiStatus<ReqType>>
 
     protected abstract suspend fun saveCallResult(data: ReqType)
 

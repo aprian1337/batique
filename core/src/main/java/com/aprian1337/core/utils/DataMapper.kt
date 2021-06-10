@@ -5,7 +5,7 @@ import com.aprian1337.core.data.source.remote.response.BatikResponse
 import com.aprian1337.core.domain.model.Batik
 
 object DataMapper {
-    fun batikResToEnt(data: BatikResponse): List<BatikEntity> {
+    fun batikResToListEnt(data: BatikResponse): List<BatikEntity> {
         val batikArrayList = ArrayList<BatikEntity>()
         data.hasil.map {
             val batik = BatikEntity(
@@ -23,7 +23,18 @@ object DataMapper {
         return batikArrayList
     }
 
-    fun batikEntToDom(data: List<BatikEntity>): List<Batik> =
+    fun batikResToEnt(data: BatikResponse): BatikEntity = BatikEntity(
+        data.hasil[0].id,
+        data.hasil[0].namaBatik,
+        data.hasil[0].daerahBatik,
+        data.hasil[0].maknaBatik,
+        data.hasil[0].hargaRendah,
+        data.hasil[0].hargaTinggi,
+        data.hasil[0].linkBatik,
+        false,
+    )
+
+    fun batikListEntToDom(data: List<BatikEntity>): List<Batik> =
         data.map {
             Batik(
                 it.batikId,
@@ -36,6 +47,20 @@ object DataMapper {
                 it.isFavorite,
             )
         }
+
+    fun batikEntToDom(data: BatikEntity): Batik = data.let {
+        Batik(
+            it.batikId,
+            it.namaBatik,
+            it.daerahBatik,
+            it.maknaBatik,
+            it.hargaRendah,
+            it.hargaTinggi,
+            it.imgBatik,
+            it.isFavorite,
+        )
+    }
+
 
     fun batikDomToEnt(data: Batik) = BatikEntity(
         data.idBatik,
