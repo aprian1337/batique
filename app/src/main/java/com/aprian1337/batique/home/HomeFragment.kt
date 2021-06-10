@@ -1,5 +1,6 @@
 package com.aprian1337.batique.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,7 +9,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aprian1337.batique.core.data.Status
+import com.aprian1337.batique.core.domain.model.Batik
 import com.aprian1337.batique.databinding.FragmentHomeBinding
+import com.aprian1337.batique.details.DetailActivity
 import com.cap0097.ahuahuapp.ui.history.HomeAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -47,6 +50,28 @@ class HomeFragment : Fragment() {
                 }
             }
         })
+        adapter.setOnItemClickCallback(object: HomeAdapter.OnItemClickCallback{
+            override fun onItemClicked(data: Batik) {
+                selectedUser(data)
+            }
+        })
+    }
+
+    private fun selectedUser(data: Batik) {
+        Intent(requireContext(), DetailActivity::class.java).apply {
+            val batik = Batik(
+                data.idBatik,
+                data.namaBatik,
+                data.daerahBatik,
+                data.maknaBatik,
+                data.hargaRendah,
+                data.hargaTinggi,
+                data.imgBatik,
+                data.isFavorite,
+            )
+            putExtra(DetailActivity.EXTRA_DETAIL, batik)
+            startActivity(this)
+        }
     }
 
     private fun setupRv() {

@@ -43,17 +43,28 @@
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                tools:text="Batik Gajah Oleng" />
+                tools:text="@string/namabatik" />
 
-            <TextView
-                android:id="@+id/tv_item_city"
-                android:layout_width="match_parent"
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:gravity="center"
-                android:maxLines="2"
-                android:textColor="@color/light_grey"
-                tools:text="Banyuwangi" />
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@color/orange"
+                app:cardCornerRadius="16dp">
+
+                <TextView
+                    android:id="@+id/tv_item_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="4dp"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="4dp"
+                    android:textSize="12sp"
+                    android:text="@string/banyuwangi"
+                    android:textColor="@color/white"/>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

@@ -10,5 +10,7 @@
     <color name="brown">#331313</color>
     <color name="lightbrown">#602F2F</color>
     <color name="light_grey">#DBDBDB</color>
+    <color name="light_grey2">#EFEFEF</color>
     <color name="orange">#f05b50</color>
+    <color name="blue">#50A5F0</color>
 </resources>

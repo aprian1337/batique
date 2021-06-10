@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface BatikDao {
 //    QUERY FOR LIST
-    @Query("SELECT * FROM ${Constants.TABLE_NAME_BATIK}")
+    @Query("SELECT * FROM ${Constants.TABLE_NAME_BATIK} ORDER BY namaBatik ASC")
     fun getAllBatik(): Flow<List<BatikEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
