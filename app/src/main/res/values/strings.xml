@@ -6,4 +6,5 @@
     <string name="err_fetch">Failed to fetch data</string>
     <string name="fav">Successfuly added to favorite</string>
     <string name="unfav">Successfuly removed to favorite</string>
+    <string name="bg_shimmer">TODO</string>
 </resources>
