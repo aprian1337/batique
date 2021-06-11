@@ -1,6 +1,5 @@
 package com.aprian1337.batique.details
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
 import android.view.View
@@ -24,7 +23,6 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
     private val viewModel: DetailViewModel by viewModels()
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
@@ -45,10 +43,11 @@ class DetailActivity : AppCompatActivity() {
                     is Status.SUCCESS -> {
                         showLoading(false)
                         it.data?.let { detail ->
+                            val harga = "Rp${detail.hargaRendah}-Rp${detail.hargaTinggi}"
                             binding.apply {
                                 tvNamaBatik.text = detail.namaBatik
                                 tvDeskripsi.text = detail.maknaBatik
-                                tvHarga.text = "Rp${detail.hargaRendah}-Rp${detail.hargaTinggi}"
+                                tvHarga.text = harga
                                 tvKota.text =
                                     if (detail.daerahBatik == "" || detail.daerahBatik == "-") "Tidak dikenali" else detail.daerahBatik
                                 Glide.with(applicationContext)
