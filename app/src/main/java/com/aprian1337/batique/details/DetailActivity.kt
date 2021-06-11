@@ -30,7 +30,7 @@ class DetailActivity : AppCompatActivity() {
         binding.includeToolbar.toolbar.apply {
             setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
             setNavigationOnClickListener {
-                finish()
+                onBackPressed()
             }
         }
         val batik = intent.getStringExtra(EXTRA_NAMA_BATIK)

@@ -1,5 +1,6 @@
 package com.aprian1337.batique.home
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -58,7 +59,7 @@ class HomeFragment : Fragment() {
     private fun selectedUser(data: Batik) {
         Intent(requireContext(), DetailActivity::class.java).apply {
             putExtra(DetailActivity.EXTRA_NAMA_BATIK, data.namaBatik)
-            startActivity(this)
+            startActivity(this, ActivityOptions.makeSceneTransitionAnimation(requireActivity()).toBundle())
         }
     }
 
