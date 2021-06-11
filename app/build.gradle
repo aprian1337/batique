@@ -48,6 +48,6 @@ dependencies {
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.20-RC"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 }
