@@ -1,5 +1,6 @@
 package com.aprian1337.core.di
 
+import com.aprian1337.core.data.source.remote.network.ApiService
 import com.aprian1337.core.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -31,12 +32,12 @@ class NetworkModule {
     }
 
     @Provides
-    fun provideApi(client: OkHttpClient): com.aprian1337.core.data.source.remote.network.ApiService {
+    fun provideApi(client: OkHttpClient): ApiService {
         val retrofit = Retrofit.Builder()
             .baseUrl(Constants.BASE_URL_API)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
-        return retrofit.create(com.aprian1337.core.data.source.remote.network.ApiService::class.java)
+        return retrofit.create(ApiService::class.java)
     }
 }

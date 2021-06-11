@@ -1,5 +1,6 @@
 package com.aprian1337.core.data.source.remote
 
+import com.aprian1337.core.data.source.remote.network.ApiService
 import com.aprian1337.core.data.source.remote.network.ApiStatus
 import com.aprian1337.core.data.source.remote.response.BatikResponse
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +12,7 @@ import javax.inject.Singleton
 
 @Singleton
 class RemoteDataSource @Inject constructor(
-    private val apiService: com.aprian1337.core.data.source.remote.network.ApiService
+    private val apiService: ApiService
 ) {
     suspend fun getAllBatik(): Flow<ApiStatus<BatikResponse>> {
         return flow{

@@ -1,5 +1,7 @@
 package com.aprian1337.core.data
 
+import com.aprian1337.core.data.source.local.LocalDataSource
+import com.aprian1337.core.data.source.remote.RemoteDataSource
 import com.aprian1337.core.data.source.remote.network.ApiStatus
 import com.aprian1337.core.data.source.remote.response.BatikResponse
 import com.aprian1337.core.domain.model.Batik
@@ -15,8 +17,8 @@ import javax.inject.Singleton
 
 @Singleton
 class BatikRepository @Inject constructor(
-    private val remoteData: com.aprian1337.core.data.source.remote.RemoteDataSource,
-    private val localData: com.aprian1337.core.data.source.local.LocalDataSource
+    private val remoteData: RemoteDataSource,
+    private val localData: LocalDataSource
 ) : IBatikRepository {
     override fun getAllBatik(): Flow<Status<List<Batik>>> =
         object : NetworkBoundResource<List<Batik>, BatikResponse>() {

@@ -23,7 +23,8 @@
             android:adjustViewBounds="true"
             android:foreground="@drawable/gradient"
             android:scaleType="fitXY"
-            android:src="@color/orange" />
+            android:src="@color/orange"
+            android:contentDescription="@string/card" />
 
         <LinearLayout
             android:layout_width="match_parent"
