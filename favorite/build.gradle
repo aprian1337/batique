@@ -36,6 +36,6 @@ android {
 dependencies {
     implementation project(":core")
     implementation project(":app")
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.20-RC"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }
