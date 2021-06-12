@@ -32,7 +32,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <FrameLayout
@@ -46,17 +46,18 @@
                     android:adjustViewBounds="true"
                     android:foreground="@drawable/gradient"
                     android:scaleType="fitXY"
-                    android:src="@color/lightbrown" />
+                    android:src="@color/lightbrown"
+                    android:contentDescription="@string/image" />
 
                 <TextView
                     android:id="@+id/tv_nama_batik"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginBottom="50dp"
                     android:fontFamily="@font/font_poppins_bold"
-                    android:text="Batik Gajah Oleng"
+                    android:text="@string/batik_gajah_oleng"
                     android:textColor="@color/white"
                     android:textSize="26sp" />
 
@@ -64,7 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginBottom="20dp">
 
                     <androidx.cardview.widget.CardView
@@ -89,7 +90,7 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="6dp"
+                        android:layout_marginStart="6dp"
                         app:cardBackgroundColor="@color/blue"
                         app:cardCornerRadius="16dp">
 
@@ -126,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
                     android:padding="16dp"
-                    android:text="Description"
+                    android:text="@string/description"
                     android:textColor="@color/brown"
                     android:textSize="14sp" />
 
